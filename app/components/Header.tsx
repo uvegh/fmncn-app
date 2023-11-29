@@ -30,7 +30,7 @@ function Header() {
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <Link
               href="#"
-              className="block py-2 px-3  max-lg:hidden"
+              className="block py-2 px-3  max-lg:hidden lg:font-normal lg: text-2xl"
               aria-current="page"
               onClick={() => {
                 setAppState({
@@ -51,7 +51,7 @@ function Header() {
                   showModal: true,
                 });
               }}
-              className="text-white hover:bg-primary-success bg-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold font-rubik  px-4 py-2 text-center rounded-full text-xl max-lg:hidden"
+              className="text-white hover:bg-primary-success bg-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg:font-normal lg: text-2xl   px-4 py-2 text-center rounded-[1.3rem]  max-lg:hidden"
             >
               Get started
             </button>
@@ -88,7 +88,7 @@ function Header() {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-default"
           >
-            <ul className="flex  text-white ">
+            <ul className="flex  text-white lg:font-normal lg: text-2xl">
               <li>
                 <Link href="#" className="block py-2 px-3" aria-current="page">
                   Home

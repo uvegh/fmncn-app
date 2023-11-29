@@ -58,7 +58,7 @@ function Footer() {
 <Image
               width="34"
               height="34"
-              src="/images/facebooktsapp.svg"
+              src="/images/facebook.svg"
               className=" "
               alt=" Logo"
             />
