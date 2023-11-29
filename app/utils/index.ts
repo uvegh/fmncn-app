@@ -1,30 +1,10 @@
-interface ConfluenceOAuthConfigType {
-    audience: string;
-    client_id: string;
-    redirect_uri: string;
-    scope: string;
-    state: string;
-  }
-export const confluenceOAuthConfig: ConfluenceOAuthConfigType = {
-    audience: 'api.atlassian.com',
-    client_id: process.env.CONFLUENCE_CLIENT_ID || '',
-    redirect_uri: process.env.REDIRECT_URL || '', 
-    scope: 'write:confluence-content',
-    state: Math.random().toString(36).substring(7), 
-  };
-  
-  // Function to initiate Confluence OAuth flow
+    // Function to initiate Confluence OAuth flow
    export const initiateConfluenceOAuth = () => {
-    // Convert ConfluenceOAuthConfigType to Record<string, string>
-    const queryParams: Record<string, string> = {
-      audience: confluenceOAuthConfig.audience,
-      client_id: confluenceOAuthConfig.client_id,
-      redirect_uri: confluenceOAuthConfig.redirect_uri,
-      scope: confluenceOAuthConfig.scope,
-      state: confluenceOAuthConfig.state,
-    };
-  
-    const authorizationUrl = `https://auth.atlassian.com/authorize?${new URLSearchParams(queryParams).toString()}&response_type=code&prompt=consent`;
+    // Manually build auth url
+       
+    const client_id = process.env.CONFLUENCE_CLIENT_ID || '',
+    const app_state = Math.random().toString(36).substring(7),
+    const authorizationUrl = `https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${client_id}&scope=write%3Aconfluence-content%20read%3Aconfluence-content.all%20readonly%3Acontent.attachment%3Aconfluence&redirect_uri=https%3A%2F%2Ffmncn-app.vercel.app%2Fdashboard&state=${app_state}&response_type=code&prompt=consent`
   
     // Redirect the user to the Confluence authorization URL
     window.location.href = authorizationUrl;
