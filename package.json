@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@segment/analytics-node": "^1.1.4",
     "axios": "^1.6.2",
     "convert-audio": "^1.0.1",
     "file-saver": "^2.0.5",
@@ -23,7 +24,9 @@
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-loading-skeleton": "^3.3.1",
-    "react-media-recorder": "^1.6.6"
+    "react-media-recorder": "^1.6.6",
+    "react-segment": "^0.1.9",
+    "twilio": "^4.19.3"
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.7",

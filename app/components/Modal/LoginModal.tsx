@@ -1,3 +1,4 @@
+import { handleLogin } from "@/app/api/auth/user";
 import { AppContext } from "@/app/container";
 import { initiateConfluenceOAuth } from "@/app/utils";
 import { Dialog, Transition } from "@headlessui/react";
@@ -68,7 +69,11 @@ const LoginModal: React.FC<{
                     <div className="mt-12 ">
                       <p
                         className="text-grey-200 bg-primary-success px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 cursor-pointer"
-                        onClick={initiateConfluenceOAuth}
+                        onClick={()=>{
+                          
+                          initiateConfluenceOAuth()
+                          handleLogin()
+                        }}
                       >
                         <Image
                           src="images/confluence-logo.svg"
@@ -77,6 +82,7 @@ const LoginModal: React.FC<{
                           alt="confluence-logo"
                           height="33"
                         />{" "}
+                        
                         Continue with Confluence
                       </p>
                     </div>

@@ -82,10 +82,10 @@ const ConsentScreen: React.FC<{
                     </Link> */}
                     <main className="mt-12 ">
                       <p
-                        className="text-black  px-5  mx-auto  leading-6 text-2xl font-[500] text-[1.3rem]  rounded-full mt-9 max-lg:  max-sm:w-full font-rubik  text-center  "
+                        className="text-black  px-5  mx-auto  leading-6 text-2xl font-[500] text-[1.3rem]  rounded-full mt-9 max-lg: max-sm:w-full font-rubik  text-center "
                     
                       >
-                       We're on a mission to enhance the quality of transcription technology. <br/> <br/>
+                       We&apos;re on a mission to enhance the quality of transcription technology. <br/> <br/>
 
 If you would be willing to contribute to the future of seamless meetings by allowing us  use your <br/>  meeting transcriptions for data training, it would go a long way in ensuring we create an even <br/> better product for you. <br/> <br/> 
 

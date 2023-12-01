@@ -12,8 +12,8 @@ const AudioRecorder = () => {
     const [audio, setAudio] = useState<any>(null);
     const [isLoading,setIsloading]=useState<boolean>(false);
     const [transcripts,setTranscripts]=useState<boolean>(false);
-    const [second, setSecond] = useState<string>("00");
-    const [minute, setMinute] = useState<string>("00");
+    const [second, setSecond] = useState<string |number>("00");
+    const [minute, setMinute] = useState<string |number>("00");
     const [counter, setCounter] = useState(0);
     const [isActive, setIsActive] = useState(false);
     const mimeType = "audio/webm";
@@ -39,7 +39,7 @@ const AudioRecorder = () => {
         setRecordingStatus("recording");
 setIsActive(true)
         //create new Media recorder instance using the stream
-        const media = new MediaRecorder(stream, { type: mimeType });
+        const media = new MediaRecorder(stream);
         //set the MediaRecorder instance to the mediaRecorder ref
         mediaRecorder.current = media;
         //invokes the start method to start the recording process
@@ -134,7 +134,9 @@ setIsActive(true)
                 ? `0${minuteCounter}`
                 : minuteCounter;
     
+    
             setSecond(computedSecond);
+       
             setMinute(computedMinute);
     
             setCounter((counter) => counter + 1);
