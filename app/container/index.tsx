@@ -14,7 +14,8 @@ const [appState,setAppState]=useReducer(
     return newState
 },{
     showModal:false,
-    loginModal:false
+    loginModal:false,
+    showConsent:true
 }
 
 
@@ -33,6 +34,7 @@ setIsOpen={(value:boolean)=>{
 })
 }}
 />
+
 
 <LoginModal
 isOpen={appState.loginModal}

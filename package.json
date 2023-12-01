@@ -11,15 +11,22 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "axios": "^1.6.2",
+    "convert-audio": "^1.0.1",
+    "file-saver": "^2.0.5",
     "flowbite": "^2.2.0",
     "framer-motion": "^10.16.5",
+    "mic-recorder-to-mp3": "^2.2.2",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
+    "next-connect": "^1.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "react-loading-skeleton": "^3.3.1",
+    "react-media-recorder": "^1.6.6"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

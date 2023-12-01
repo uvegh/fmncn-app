@@ -1,5 +1,6 @@
 import { AppContext } from '@/app/container';
 import { initiateConfluenceOAuth } from '@/app/utils';
+import {confluenceAuthUrl} from '@/app/utils'
 import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -75,7 +76,8 @@ const {appState,setAppState}=useContext(AppContext)
 
 <div className='mt-12 '>
 <p  className="text-grey-200 bg-primary-success px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 cursor-pointer"
-onClick={initiateConfluenceOAuth}
+//@ts-ignore
+onClick={confluenceAuthUrl}
 >
 <Image src="images/confluence-logo.svg" className="h-6 w-6 " width="35" alt="confluence-logo" height="33" /> Continue with Confluence
 </p>

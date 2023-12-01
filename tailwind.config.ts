@@ -22,6 +22,7 @@ const config: Config = {
       white:"#FFFFFF",
       "white-200":"#D9D9D9",
       "grey-200":"#D9D9D9",
+      black:"#000000"
 
     },
     fontFamily:{

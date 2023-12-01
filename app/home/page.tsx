@@ -9,8 +9,15 @@ import { AppContext } from '../container'
 
 
 export default function Page() {
+//  let texts= document.getElementsByClassName("text1")
 
-
+//   for (let index = 0; index <= texts.length; index++) {
+   
+//     setInterval(()=>{
+// texts[index]?.setAttribute("class", "block")
+//     },100)
+    
+//   }
 
 
   const {appState,setAppState}=useContext(AppContext)
@@ -26,14 +33,14 @@ Revolutionize your meeting <br /> notes with FMCN
 
 </h1>
 
-<div className="text-container text-white text-center font-semibold text-lg mt-7">
-  <div className="text">
-<span>Generates structural meeting notes</span>
-<span>Every second is recorded</span>
-<span>Produces accurate transcriptions</span>
+<div className="text-container text-white text-center font-semibold text-[1.3rem] mt-7 min-w-full font-poppins">
+  <div className="text-slide-up flex flex-col relative mx-auto min-w-full">
+<span className='text1 '>Generates structural meeting notes</span>
+<span className='text1'>Every second is recorded</span>
+<span className='text1'>Produces accurate transcriptions</span>
+</div   >
 </div>
-</div>
-<div className='text-center'>
+<div className='text-center mt-7'>
 <button
               type="button"
 

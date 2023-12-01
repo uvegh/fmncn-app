@@ -18,7 +18,7 @@ function Header() {
       }}
       >
         <div className="max-w-screen-xl flex flex-wrap items-center gap-6 justify-between mx-auto p-4">
-          <Link href="" className="flex items-center">
+          <Link href="/home" className="flex items-center">
             <Image
               width="100"
               height="96"
