@@ -1,4 +1,5 @@
 interface ConfluenceOAuthConfigType {
+    audience: string;
     client_id: string;
     redirect_uri: string;
     scope: string;
@@ -19,6 +20,7 @@ interface ConfluenceOAuthConfigType {
 
 
 export const confluenceOAuthConfig: ConfluenceOAuthConfigType = {
+    audience: 'api.atlassian.com',
     client_id: process.env.CONFLUENCE_CLIENT_ID || '',
     redirect_uri: process.env.REDIRECT_URL || '', 
     scope: 'write:confluence-content',
@@ -29,6 +31,7 @@ export const confluenceOAuthConfig: ConfluenceOAuthConfigType = {
    export const initiateConfluenceOAuth = () => {
     // Convert ConfluenceOAuthConfigType to Record<string, string>
     const queryParams: Record<string, string> = {
+      audience: confluenceOAuthConfig.audience,
       client_id: confluenceOAuthConfig.client_id,
       redirect_uri: confluenceOAuthConfig.redirect_uri,
       scope: confluenceOAuthConfig.scope,
