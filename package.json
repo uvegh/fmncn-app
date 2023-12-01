@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@segment/analytics-next": "^1.62.0",
     "@segment/analytics-node": "^1.1.4",
     "axios": "^1.6.2",
     "convert-audio": "^1.0.1",
@@ -29,6 +30,7 @@
     "twilio": "^4.19.3"
   },
   "devDependencies": {
+    "@types/analytics-node": "^3.1.14",
     "@types/file-saver": "^2.0.7",
     "@types/node": "^20",
     "@types/react": "^18",

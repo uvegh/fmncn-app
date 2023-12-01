@@ -1,4 +1,4 @@
-import {analytics} from "@/app/services"
+import {analytics} from "@/app/services/index"
 
 
 export const handleSignup=()=>{

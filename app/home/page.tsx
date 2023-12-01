@@ -8,7 +8,7 @@ import { AppContext } from '../container'
 
 
 
-export default function Index() {
+export default function Page() {
 //  let texts= document.getElementsByClassName("text1")
 
 //   for (let index = 0; index <= texts.length; index++) {

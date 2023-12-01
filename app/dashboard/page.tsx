@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Recorder from '../components/Recorder'
 import ConsentScreen from '../components/Modal/ConsentScreen'
 
-function Index() {
+function Page() {
  
   const [showConsent,setShowConsent]=useState<boolean>(true)
   return (
@@ -27,4 +27,4 @@ function Index() {
   )
 }
 
-export default Index
+export default Page
