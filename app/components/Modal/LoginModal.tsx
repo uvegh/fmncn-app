@@ -1,9 +1,11 @@
-import { handleLogin } from "@/app/api/auth/user";
+"use client";
+import { handleAtlassianLogin, handleLogin } from "@/app/api/auth/user";
 import { AppContext } from "@/app/container";
 import { initiateConfluenceOAuth } from "@/app/utils";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { Fragment, useContext } from "react";
 
 const LoginModal: React.FC<{
@@ -14,8 +16,15 @@ const LoginModal: React.FC<{
     setIsOpen(false);
     console.log("closed");
   }
-  const { appState, setAppState } = useContext(AppContext);
+  const onSuccess = (authLink: string) => {
+    route.push(authLink);
+  };
+  const onError = () => {
+    console.log("something went wrong");
+  };
 
+  const { appState, setAppState } = useContext(AppContext);
+  const route = useRouter();
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -69,10 +78,8 @@ const LoginModal: React.FC<{
                     <div className="mt-12 ">
                       <p
                         className="text-grey-200 bg-primary-success px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 cursor-pointer"
-                        onClick={()=>{
-                          
-                          initiateConfluenceOAuth()
-                          handleLogin()
+                        onClick={() => {
+                          handleAtlassianLogin({ onSuccess, onError });
                         }}
                       >
                         <Image
@@ -81,8 +88,7 @@ const LoginModal: React.FC<{
                           width="35"
                           alt="confluence-logo"
                           height="33"
-                        />{" "}
-                        
+                        />
                         Continue with Confluence
                       </p>
                     </div>

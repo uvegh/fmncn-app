@@ -1,19 +1,26 @@
+
 import { AppContext } from "@/app/container";
 import { initiateConfluenceOAuth } from "@/app/utils";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 
-const ConsentScreen: React.FC<{
+interface recordingBlob{
+    audioRecord:Blob
+  } 
+
+const RecordingModal: React.FC<{
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-}> = ({ isOpen, setIsOpen }) => {
+  audioRecord?:recordingBlob
+}> = ({ isOpen, setIsOpen,audioRecord }) => {
   function closeModal() {
     setIsOpen(false);
-  
+    console.log("closed");
   }
   const { appState, setAppState } = useContext(AppContext);
+
 
   return (
     <>
@@ -81,32 +88,32 @@ const ConsentScreen: React.FC<{
                       />
                     </Link> */}
                     <main className="mt-12 ">
-                      <p
-                        className="text-black  px-5  mx-auto  leading-6 text-2xl font-[500] text-[1.3rem]  rounded-full mt-9 max-lg: max-sm:w-full font-rubik  text-center "
-                    
-                      >
-                       We&apos;re on a mission to enhance the quality of transcription technology. <br/> <br/>
+                        
+                    <audio  className="w-[75%] mx-auto"
+                    //@ts-ignore
+                    src={audioRecord} controls>
 
-If you would be willing to contribute to the future of seamless meetings by allowing us  use your <br/>  meeting transcriptions for data training, it would go a long way in ensuring we create an even <br/> better product for you. <br/> <br/> 
-
-Be assured that your privacy is our priority. All data used is anonymous and treated with the <br/>  highest level of security. <br/> <br/> 
-
-Ready to be a part of the innovation journey?
-                      </p>
+                    </audio>
                     </main>
                     
-<section className="flex justify-center gap-x-3 w-[60%] max-md:fex-col mx-auto mt-7">
-<p className="font-semibold border-2 border-primary-success px-5  justify-center mx-auto  text-lg  py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 text-primary-success">
-No, Transcribe Only
-                    </p>
+<section className="flex justify-center gap-x-3 w-[60%] max-md:fex-col mx-auto mt-10">
+<Image
+                        className="mx-auto cursor-pointer text-center mt-5"
+                        src="/images/viewMeetingNotes.svg"
+                        alt="close btn"
+                        width="360"
+                        height="80"
+                      />
 
-<p className="text-white border-2 px-5  justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 bg-primary-success">
-                  
-                   Yes, Lets Get Started
-                    </p>
+<Image
+                        className="mx-auto cursor-pointer text-center mt-5"
+                        src="/images/viewTranscripts.svg"
+                        alt="close btn"
+                        width="360"
+                        height="80"
+                      />
 
-
-                                 
+                                  
 </section>
                     
 <div className=" justify-center flex gap-x-5 mt-10">
@@ -130,6 +137,7 @@ No, Transcribe Only
                             />
                             </div> 
                     
+                    
                   </section>
                 </Dialog.Panel>
               </Transition.Child>
@@ -141,4 +149,4 @@ No, Transcribe Only
   );
 };
 
-export default ConsentScreen;
+export default RecordingModal;

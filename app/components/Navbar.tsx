@@ -1,24 +1,27 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState } from 'react'
+import Link from 'next/link';
 
-import { IoMdMenu } from "react-icons/io";
+
+
+
 
 import Image from "next/image";
-import Link from "next/link";
-import { AppContext } from "../container";
 
-function Header() {
-  const { appState, setAppState } = useContext(AppContext);
-  const [isOpen, setIsOpen] = useState(false);
+import { AppContext } from "../container";
+function Navbar() {
+    const { appState, setAppState } = useContext(AppContext);
+    const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <nav className="bg-primary-blue dark:bg-gray-900 font-poppins fixed w-full text-white z-20 top-0 start-0  font-semibold text-lg"
+   <nav className="bg-white text-primary-blue  font-poppins   max-h-[6rem] fixed w-full   z-20 top-0 start-0  font-bold text-lg"
       onClick={()=>{
         setIsOpen(false)
       }}
       >
-        <div className="w-[90%] flex flex-wrap items-center gap-6 justify-between mx-auto p-4">
-          <Link href="/home" className="flex items-center">
+        <div className="w-full flex flex-wrap items-center gap-6 justify-between mx-auto ">
+         
+<Link href="/home" className="flex items-center">
             <Image
               width="100"
               height="96"
@@ -27,33 +30,21 @@ function Header() {
               alt=" Logo"
             />
           </Link>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Link
-              href="#"
-              className="block py-2 px-3  max-lg:hidden lg:font-normal lg: text-2xl"
-              aria-current="page"
-              onClick={() => {
-                setAppState({
-                  ...appState,
-                  showModal: false,
-                  loginModal: true,
-                });
-              }}
-            >
-              Log in
-            </Link>
+
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse me-16">
+          
 
             <button
               type="button"
-              onClick={() => {
-                setAppState({
-                  ...appState,
-                  showModal: true,
-                });
-              }}
-              className="text-white hover:bg-primary-success bg-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg:font-normal lg: text-2xl   px-4 py-2 text-center rounded-[1.3rem]  max-lg:hidden"
+              // onClick={() => {
+              //   setAppState({
+              //     ...appState,
+              //     showModal: true,
+              //   });
+              // }}
+              className=" hover: text-primary-success border-2 border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg:font-semibold lg: text-xl   px-4 py-1 text-center rounded-[1.3rem]  max-lg:hidden "
             >
-              Get started
+           Logout
             </button>
             <button
               data-collapse-toggle="navbar-default"
@@ -85,12 +76,12 @@ function Header() {
             </button>
           </div>
           <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            className="items-center justify-between hidden w-full mx-auto md:flex md:w-auto md:order-1"
             id="navbar-default"
           >
-            <ul className="flex  text-white lg:font-normal lg: text-2xl">
+            <ul className="flex   lg:font-normal lg: text-2xl">
               <li>
-                <Link href="#" className="block py-2 px-3" aria-current="page">
+                <Link href="/home" className="block py-2 px-3" aria-current="page">
                   Home
                 </Link>
               </li>
@@ -126,7 +117,7 @@ function Header() {
 // e.stopPropagation()
 //               }}
             >
-              <ul className="  text-white ">
+              <ul className="   ">
                 <li>
                   <Link
                     href="#"
@@ -163,7 +154,7 @@ function Header() {
         </div>
       </nav>
     </>
-  );
+  )
 }
 
-export default Header;
+export default Navbar

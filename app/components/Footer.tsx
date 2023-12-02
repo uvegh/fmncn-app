@@ -9,14 +9,14 @@ function Footer() {
 
 
 
-    <footer className="bg-primary-blue ">
-    <div className="mx-auto w-full max-w-screen-xl">
-      <div className="grid lg:grid-cols-5 gap-8 px-4 py-6 lg:py-8 max-md:grid-cols-2 max-sm:grid-cols-1">
+    <footer className="bg-white-200 ">
+    <div className="mx-auto  w-full bg-primary-blue flex">
+      <section className="grid lg:grid-cols-2 lg: w-1/2 px-4 py-6 lg:py-8 max-md:grid-cols-2 max-sm:grid-cols-1 ms-[5%]">
 
       <div>
       <Image
-              width="100"
-              height="96"
+              width="88"
+              height="83"
               src="/logo2.svg"
               className=" lg:w-[50%]"
               alt=" Logo"
@@ -24,7 +24,7 @@ function Footer() {
         </div>
 
 
-        <div>
+        <div className=''>
        
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li>Ever wish you could press rewind on a meeting? Now you can with TranscribeMate, your go-to meeting transcription wizard. Say goodbye to scribbled notes and hello to a world where every word counts.</li>
@@ -64,8 +64,11 @@ function Footer() {
             />
             </li>
         </div>
+        </section>
+
+        <section className="grid lg:grid-cols-3  px-4 py-6 lg:py-8 max-md:grid-cols-3 max-sm:grid-cols-1">
         <div>
-            <h2 className="mb-6 text-sm font-semibold text-grey-200  dark:text-white">Our Company</h2>
+            <h2 className="mb-6 text-lg font-bold text-grey-200  dark:text-white">Our Company</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
            
 
@@ -92,12 +95,12 @@ function Footer() {
         </div>
         <div>
 
-        Contact us
+       
 
 
 
 
-        <h2 className="mb-6 text-sm font-semibold text-grey-200  dark:text-white">Contact Us</h2>
+        <h2 className="mb-6 text-lg font-bold text-grey-200  dark:text-white">Contact Us</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">info@fmcn.com</Link>
@@ -111,8 +114,8 @@ function Footer() {
             </ul>
         </div>
         <div>
-        <h2 className="mb-6 text-sm font-semibold text-grey-200  dark:text-white">Partnership</h2>
-            <ul className="text-gray-500 dark:text-gray-400 font-medium">
+        <h2 className="mb-6 text-lg font-bold text-grey-200  dark:text-white">Partnership</h2>
+            {/* <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">iOS</Link>
                 </li>
@@ -125,12 +128,14 @@ function Footer() {
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">MacOS</Link>
                 </li>
-            </ul>
+            </ul> */}
         </div>
+        </section>
+       
     </div>
     
   
-    </div>
+  
 </footer>
 
 

@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppContainer>  
-      <Header/>
+      
       <body className={`${inter.className} ${rubik.className}${poppins.className} mt-12`}>{children}</body>
       <Footer/>
       </AppContainer>

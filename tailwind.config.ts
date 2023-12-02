@@ -20,7 +20,7 @@ const config: Config = {
       grey:"#4242457D",
       "grey-300":"#2B415C",
       white:"#FFFFFF",
-      "white-200":"#D9D9D9",
+      "white-200":"#E8E6EB",
       "grey-200":"#D9D9D9",
       black:"#000000"
 
