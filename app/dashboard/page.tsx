@@ -11,9 +11,9 @@ import { useRouter } from "next/navigation";
 
 function Page() {
   const [showConsent, setShowConsent] = useState<boolean>(false);
-  const [showRecorded, setShowRecorded] = useState<boolean>(true);
+  const [showRecorded, setShowRecorded] = useState<boolean>(false);
   const [audioUrl, setAudioUrl] = useState<Blob>();
-  const router = useRouter();
+  // const router = useRouter();
   const handleRecieveBlob = (data: any) => {
     setAudioUrl(data);
   };
@@ -22,7 +22,12 @@ function Page() {
   // };
 
   useEffect(() => {
-    analytics.page();
+  
+analytics.page({
+  path:'/home',
+  title:'homepage viewed',
+  
+})
     // router.events.on("routeChangeComplete", handlePageRoute);
     // return () => {
     //   router.events.off("routeChangeComplete", handlePageRoute);

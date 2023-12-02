@@ -16,17 +16,21 @@ function Layout({children}:{
        
    
     </div>
-    <section className='flex mt-[5.8rem] '>
-       <div className='w-[6%] min-h-screen bg-primary-blue '>
+    <section className='flex mt-[5.7rem] '>
+       <div className='w-[5.9%] min-h-screen bg-primary-blue z-19 '>
 <ul className='fixed ms-5 mt-16'>
     
-    <li className="">  <Image
+    <li className=""> 
+    <Link href="/dashboard">
+    <Image
               width="61"
               height="14"
               src="/images/dashboard.svg"
               className="  max-md:w-[30%] max-md:h-[30%]  "
-              alt=" Logo"
-            /></li>
+              alt=" dashboard"
+            />
+    </Link>
+    </li>
 </ul>
 
    </div>

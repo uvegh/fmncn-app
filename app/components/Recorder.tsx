@@ -65,8 +65,9 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
 
   const stopRecording = () => {
     setRecordingStatus("inactive");
-    // setSecond("00")
-    // setMinute("00")
+    setSecond("00")
+    setMinute("00")
+    clearInterval(intervalId)
     setIsActive(false);
     //@ts-ignore
     mediaRecorder.current.onstop = () => {
@@ -124,9 +125,9 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
       testing(audioFile);
     }
   };
-
+  let intervalId: any;
   useEffect(() => {
-    let intervalId: any;
+   
 
     if (isActive) {
       intervalId = setInterval(() => {
@@ -163,7 +164,12 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
             <section className="flex justify-center gap-x-10 mt-8 items-center">
               <button className="hover:scale-125 transition-all ">
                 <Image
-                  onClick={stopRecording}
+                  onClick={()=>{
+                    stopRecording()
+                    clearInterval(intervalId);
+                     setSecond("00")
+        setMinute("00")
+                  }}
                   width="40"
                   height="40"
                   src="/images/stop.svg"
@@ -189,8 +195,16 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
                 />
               </button>
 
-              <button className="hover:scale-125 transition-all">
+              <button className="hover:scale-125 transition-all"
+              
+              onClick={()=>{
+                stopRecording()
+                clearInterval(intervalId);
+                 setSecond("00")
+    setMinute("00")
+              }}>
                 <Image
+
                   width="36"
                   height="36"
                   src="/images/cancel.svg"
