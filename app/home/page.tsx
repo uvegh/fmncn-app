@@ -1,8 +1,9 @@
 "use client"
 import Image from 'next/image'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AppContext } from '../container'
 import Header from '../components/Header'
+import { analytics } from '../services'
 
 
 
@@ -11,7 +12,13 @@ import Header from '../components/Header'
 
 export default function Page() {
 
-
+useEffect(()=>{
+analytics.page({
+  path:'/home',
+  title:'homepage viewed',
+  
+})
+},[])
 
   const {appState,setAppState}=useContext(AppContext)
   return (
