@@ -2,6 +2,7 @@
 import React, { createContext, useReducer } from "react";
 import GetStarted from "../components/Modal/GetStarted";
 import LoginModal from "../components/Modal/LoginModal";
+import { SessionProvider } from "next-auth/react";
 
 export const AppContext=createContext<any>({})
 
@@ -22,10 +23,11 @@ const [appState,setAppState]=useReducer(
 )
 
 return(
+  <SessionProvider>
 <AppContext.Provider value={{appState,setAppState}}>
-<div>
+
     {children}
-</div>
+
 <GetStarted
 isOpen={appState.showModal}
 setIsOpen={(value:boolean)=>{
@@ -46,7 +48,7 @@ setIsOpen={(value:boolean)=>{
 />
 
 </AppContext.Provider>
-
+</SessionProvider>
 )
 
 }

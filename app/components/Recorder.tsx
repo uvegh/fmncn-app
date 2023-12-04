@@ -3,6 +3,8 @@ import axios from "axios";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { CiMicrophoneOn, CiMicrophoneOff } from "react-icons/ci";
+import { BASE_URL } from "../utils";
+import { DEFAULT_HEADERS_AUTHORIZATION } from "../api/auth/user";
 
 interface funcParams{
   sendBlob:(params?:any)=>void
@@ -87,21 +89,17 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
   const testing = async (file: File) => {
     if (file) {
       const formData = new FormData();
-      formData.append("audio", file);
+      formData.append("audio_file", file);
       setIsloading(true);
 
       try {
         const response = await axios.post(
-          "https://translator-rra0.onrender.com/translate",
+          `${BASE_URL}/create_transcript`,
           formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
+         DEFAULT_HEADERS_AUTHORIZATION
         );
         setIsloading(false);
-        console.log(response.data?.data?.text);
+        console.log(response.data);
 
         setTranscripts(response.data?.data?.text);
         console.log(transcripts); // Assuming the response contains useful data
@@ -121,7 +119,7 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
 
       console.log("recording", audioFile);
 
-      // Call your testing function here if needed
+      
       testing(audioFile);
     }
   };
@@ -155,10 +153,10 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
   }, [isActive, counter]);
   return (
     <>
-      <section className="pt-16">
-        <div className="bg-primary-blue font-rubik rounded-[1.3rem] mx-auto  my-auto min-h-[50%] h-[20em]  w-[90%]">
+      <section className="pt-16 max-lg:pt-0">
+        <div className="bg-primary-blue font-rubik rounded-[1.3rem] mx-auto  my-auto min-h-[50%] max-lg:h-[15em] h-[20em] max-sm:rounded  max-sm:w-full w-[90%]">
           <div className="">
-            <h1 className="text-4xl font-semibold text-center text-white pt-8">
+            <h1 className="text-4xl max-lg:text-xl max-lg:font-normal font-semibold text-center text-white pt-8">
               Welcome, Vincent
             </h1>
             <section className="flex justify-center gap-x-10 mt-8 items-center">
@@ -173,7 +171,7 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
                   width="40"
                   height="40"
                   src="/images/stop.svg"
-                  className="  max-md:w-[30%] max-md:h-[30%]  "
+                  className="    "
                   alt=" stop"
                 />
               </button>
@@ -190,8 +188,8 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
                   width="100"
                   height="100"
                   src="/images/mic.svg"
-                  className="  max-md:w-[30%] max-md:h-[30%] "
-                  alt=" Logo"
+                  className=""
+                  alt=" Mic"
                 />
               </button>
 
@@ -208,8 +206,8 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
                   width="36"
                   height="36"
                   src="/images/cancel.svg"
-                  className="  max-md:w-[30%] max-md:h-[30%] "
-                  alt=" Logo"
+                  className="   "
+                  alt=" cancel"
                 />
               </button>
             </section>
@@ -232,33 +230,7 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
         </div>
       </section>
 
-      {/* { recordingStatus === "inactive" ? (
-        <>
-    <button onClick={startRecording} className="bg-blue-500  mx-auto text-5xl text-center rounded " type="button">
-       
-        <CiMicrophoneOn />
-       
-    </button> <br />
-Start
-    </>
-    ) : null}
-    {recordingStatus === "recording" ? (<>
-    <button onClick={stopRecording} className="bg-red-500  mx-auto text-5xl text-center rounded " type="button">
-        
-        <CiMicrophoneOff />    </button>
-        <br />
-        Stop 
-        </>
-    ) : null}
-
-{recordingStatus === "recording" ? (<>
-    <button onClick={stopRecording} className="bg-red-500  mx-auto text-5xl text-center rounded " type="button">
-        
-        <CiMicrophoneOff />    </button>
-        <br />
-        Stop 
-        </>
-    ) : null} */}
+   
     </>
   );
 };

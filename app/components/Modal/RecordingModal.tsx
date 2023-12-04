@@ -53,7 +53,24 @@ const RecordingModal: React.FC<{
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="max-w-[85%] transform overflow-hidden min- h-[60%]   w-[60%] bg-white rounded-[24px] align-middle shadow-xl transition-all relative">
+                <Dialog.Panel className="lg:max-w-[85%] max-lg:w-full transform overflow-hidden min- h-[60%]   lg:w-[60%] bg-white rounded-[24px] align-middle shadow-xl transition-all relative">
+
+                <Link
+                      href="#"
+                      onClick={() => {
+                        closeModal();
+                      }}
+                      className="hidden max-lg:block "
+                    >
+                      <Image
+                        className="ms-auto cursor-pointer text-center mt-1 "
+                        src="/images/close-btn.svg"
+                        alt="close btn"
+                        width="68"
+                        height="68"
+                      />
+                    </Link>
+                  
                 <Link
                       href="#"
                     //   onClick={() => {
@@ -70,7 +87,7 @@ const RecordingModal: React.FC<{
                     </Link>
 
                   <section className="pt-10 relative text-center pb-10 min-w-[90%]">
-                    <h3 className="text-primary-blue font-extrabold text-2xl font-rubik uppercase">
+                    <h3 className="text-primary-blue font-extrabold text-2xl font-rubik uppercase max-lg:font-bold max-lg:text-xl">
                     We Care About Your Privacy
                     </h3>
                     {/* <Link
@@ -89,14 +106,14 @@ const RecordingModal: React.FC<{
                     </Link> */}
                     <main className="mt-12 ">
                         
-                    <audio  className="w-[75%] mx-auto"
+                    <audio  className="w-[90%] mx-auto"
                     //@ts-ignore
                     src={audioRecord} controls>
 
                     </audio>
                     </main>
                     
-<section className="flex justify-center gap-x-3 w-[60%] max-md:fex-col mx-auto mt-10">
+<section className="flex justify-center gap-x-3 w-[60%] max-md:flex-col max-md:w-[90%]  mx-auto mt-10">
 <Image
                         className="mx-auto cursor-pointer text-center mt-5"
                         src="/images/viewMeetingNotes.svg"
@@ -116,7 +133,7 @@ const RecordingModal: React.FC<{
                                   
 </section>
                     
-<div className=" justify-center flex gap-x-5 mt-10">
+<div className=" justify-center flex gap-x-5 mt-10 max-sm">
                             <Image src="images/databricks.svg"
                             height={30}
                             width={137}

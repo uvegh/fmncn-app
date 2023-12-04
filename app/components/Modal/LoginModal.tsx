@@ -3,6 +3,7 @@ import { handleAtlassianLogin, handleLogin } from "@/app/api/auth/user";
 import { AppContext } from "@/app/container";
 import { initiateConfluenceOAuth } from "@/app/utils";
 import { Dialog, Transition } from "@headlessui/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,11 +20,16 @@ const LoginModal: React.FC<{
   const onSuccess = (authLink: string) => {
     route.push(authLink);
   };
+  const onLoginSuccess=(res:any)=>{
+console.log(res)
+  }
   const onError = () => {
     console.log("something went wrong");
   };
 
   const { appState, setAppState } = useContext(AppContext);
+  //@ts-ignore
+  const {signIn,signOut}=useSession()
   const route = useRouter();
   return (
     <>
@@ -56,7 +62,7 @@ const LoginModal: React.FC<{
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="max-w-lg transform overflow-hidden h-[545px] w-[585px] bg-white rounded-[24px] align-middle shadow-xl transition-all relative">
+                <Dialog.Panel className="max-w-lg  transform overflow-hidden h-[545px] w-[585px] bg-white rounded-[24px] align-middle shadow-xl transition-all relative max-lg:w-[100%]">
                   <section className="pt-[86px] relative text-center  ">
                     <h3 className="text-grey-300 font-bold text-lg">
                       Log in to your account
@@ -68,7 +74,7 @@ const LoginModal: React.FC<{
                       }}
                     >
                       <Image
-                        className="absolute left-[90%] bottom-[90%]  cursor-pointer"
+                        className="absolute left-[90%] bottom-[90%] max-lg:left-[85%] cursor-pointer"
                         src="/images/close-btn.svg"
                         alt="close btn"
                         width="50"
@@ -77,7 +83,7 @@ const LoginModal: React.FC<{
                     </Link>
                     <div className="mt-12 ">
                       <p
-                        className="text-grey-200 bg-primary-success px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 cursor-pointer"
+                        className="text-grey-200 bg-primary-success px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 max-lg:w-[90%] w-3/4 max-lg:text-sm text-center gap-x-4 max-lg:gap-x-1 cursor-pointer align-middle content-center"
                         onClick={() => {
                           handleAtlassianLogin({ onSuccess, onError });
                         }}
@@ -98,7 +104,17 @@ const LoginModal: React.FC<{
                       <hr className="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700 w-[45%]" />
                     </section>
 
-                    <p className="text-black border-2 border-[#424245] px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 w-3/4  text-center gap-x-4 ">
+                    <p 
+                    onClick={()=>{
+                      //@ts-ignore
+                      // handleLogin({onSuccess:onLoginSuccess,user:{username: "centeDev",
+                      // password: "1234"}})
+                      signIn
+                    
+                    }}
+                    className="border-2 border-[#424245]      max-md:gap-x-1  cursor-pointer
+                    text-black px-5 flex justify-center mx-auto  text-lg font-[500] py-3 rounded-full mt-9 max-lg:w-[90%] w-3/4 max-lg:text-sm text-center gap-x-4 max-lg:gap-x-1  align-middle content-center
+                    ">
                       <Image
                         src="images/google-logo.svg"
                         className="h-6 w-6 "
@@ -114,7 +130,7 @@ const LoginModal: React.FC<{
                       , Privacy Policy and our default Notification settings
                     </p>
 
-                    <p className="text-sm text-gray-500 w-3/4 mx-auto mt-12">
+                    <p className="text-sm text-gray-500 w-3/4 mx-auto mt-12 max-lg:mt-6">
                       Dont have an account?{" "}
                       <Link
                         href=""

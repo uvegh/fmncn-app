@@ -52,16 +52,102 @@ analytics.page({
             stop={() => setShowRecorded(true)}
           />
         </section>
-        <section>
-          <div className="bg-white font-rubik rounded-[1.3rem] text-primary-blue text-xl mx-auto mt-16 my-auto min-h-[50%] h-[20em]  w-[90%]">
-            <div className="">
-              <header className="flex justify-between w-[90%] mx-auto text-black font-semibold h-20 items-center">
-                <p className="text-3xl">Meeting Records</p>
-                <p className="text-xl text-primary-success flex items-center">
+        <section className="">
+          <div className="bg-white font-rubik rounded-[1.3rem] text-primary-blue text-xl mx-auto mt-16 my-auto min-h-[50%] h-[20em] max-sm:w-full w-[90%] max-sm:rounded-0 overflow-auto">
+            <div className="overflow-hidden ">
+              <header className="flex justify-between w-[95%] mx-auto text-black font-semibold h-20 items-center">
+                <p className="text-3xl max-lg:text-lg">Meeting Records</p>
+                <p className="text-xl text-primary-success flex items-center max-lg:text-lg">
                   See more <IoIosArrowForward />{" "}
                 </p>
               </header>
-              <table className="table-auto mx-auto font-semibold min-w-[90%] text-start overflow-x-auto  ">
+             
+
+<div className="relative overflow-auto text-primary-blue">
+    <table className="w-full text-sm lg:text-xl text-left rtl:text-right  dark:text-gray-400">
+        <thead className="text-xs   uppercase  dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" className="px-6 py-3">
+                   Date
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Meeting Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                   Duration
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" className="px-6 py-4 font-medium  whitespace-nowrap dark:text-white">
+                10th Dec, 2022
+                </th>
+                <td className="px-6 py-4">
+                Project Acer: Stand Up Meeting
+                </td>
+                <td className="px-6 py-4">
+                45:02:34
+                </td>
+                <td className="px-6 py-4 ">
+                <button
+                        type="button"
+                        className=" align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 border text-primary-success  px-4 py-1 text-center rounded-2xl   "
+                      >
+                        View Details
+                      </button>
+                </td>
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                10th Dec, 2022
+                </th>
+                <td className="px-6 py-4">
+                Project Acer: Stand Up Meeting
+                </td>
+                <td className="px-6 py-4">
+                45:02:34
+                </td>
+                <td className="px-6 py-4 ">
+                <button
+                        type="button"
+                        className=" align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 border text-primary-success  px-4 py-1 text-center rounded-2xl   "
+                      >
+                        View Details
+                      </button>
+                </td>
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                10th Dec, 2022
+                </th>
+                <td className="px-6 py-4">
+                Project Acer: Stand Up Meeting
+                </td>
+                <td className="px-6 py-4">
+                45:02:34
+                </td>
+                <td className="px-6 py-4 ">
+                <button
+                        type="button"
+                        className=" align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 border text-primary-success  px-4 py-1 text-center rounded-2xl   "
+                      >
+                        View Details
+                      </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+            </div>
+          </div>
+          ​
+        </section>
+        {/* <table className="table-auto mx-auto font-semibold max-lg:font-normal max-lg:border-spacing-4 border-separate min-w-[90%] text-start    ">
                 <thead className="border-b border-white-200   ">
                   <tr className=" font-bold text-lg">
                     <th className="text-start">Date</th>
@@ -78,7 +164,7 @@ analytics.page({
                     <td className="text-center">
                       <button
                         type="button"
-                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]  max-lg:hidden items-center "
+                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]   items-center "
                       >
                         View Details
                       </button>
@@ -91,7 +177,7 @@ analytics.page({
                     <td className="text-center">
                       <button
                         type="button"
-                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]  max-lg:hidden "
+                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]   "
                       >
                         View Details
                       </button>
@@ -104,7 +190,7 @@ analytics.page({
                     <td className="text-center">
                       <button
                         type="button"
-                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]  max-lg:hidden "
+                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]  "
                       >
                         View Details
                       </button>
@@ -118,18 +204,14 @@ analytics.page({
                     <td className="text-center">
                       <button
                         type="button"
-                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]  max-lg:hidden "
+                        className=" hover: text-primary-success border-2 h-[2rem] align-text-middle  border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg: text-lg    px-4 py-1 text-center rounded-[1.6rem]   "
                       >
                         View Details
                       </button>
                     </td>
                   </tr>
                 </tbody>
-              </table>
-            </div>
-          </div>
-          ​
-        </section>
+              </table> */}
       </div>
     </>
   );

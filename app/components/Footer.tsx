@@ -10,8 +10,8 @@ function Footer() {
 
 
     <footer className="bg-white-200 ">
-    <div className="mx-auto  w-full bg-primary-blue flex">
-      <section className="grid lg:grid-cols-2 lg: w-1/2 px-4 py-6 lg:py-8 max-md:grid-cols-2 max-sm:grid-cols-1 ms-[5%]">
+    <div className="mx-auto  w-full bg-primary-blue flex max-lg:flex-col md:mx-auto">
+      <section className="grid lg:grid-cols-2 lg:w-1/2 px-4 py-6 lg:py-8 max-md:grid-cols-2 max-sm:grid-cols-1 ms-[5%]">
 
       <div>
       <Image
@@ -66,7 +66,7 @@ function Footer() {
         </div>
         </section>
 
-        <section className="grid lg:grid-cols-3  px-4 py-6 lg:py-8 max-md:grid-cols-3 max-sm:grid-cols-1">
+        <section className="grid lg:grid-cols-3  px-4 py-6 lg:py-8 max-lg:grid-cols-3 max-sm:grid-cols-1">
         <div>
             <h2 className="mb-6 text-lg font-bold text-grey-200  dark:text-white">Our Company</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">

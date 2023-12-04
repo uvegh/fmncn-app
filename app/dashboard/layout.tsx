@@ -10,14 +10,15 @@ function Layout({children}:{
   return (
 
     <>
-    <div className='w-full '>
+    
+    
        
         <Navbar/>
        
    
-    </div>
-    <section className='flex mt-[5.7rem] '>
-       <div className='w-[5.9%] min-h-screen bg-primary-blue z-19 '>
+ 
+    <section className='flex lg: mt-[5.7rem] max-lg:mt-10'>
+       <div className='w-[5.9%] min-h-screen bg-primary-blue z-19 hidden lg:block'>
 <ul className='fixed ms-5 mt-16'>
     
     <li className=""> 
@@ -34,7 +35,7 @@ function Layout({children}:{
 </ul>
 
    </div>
-   <div className='w-[94%]'>
+   <div className='w-[94%] max-lg:w-full'>
    {children}
    </div>
    </section>

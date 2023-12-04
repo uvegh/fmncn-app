@@ -115,6 +115,7 @@ function Header() {
                   Features
                 </Link>
               </li>
+              
             </ul>
           </div>
 
@@ -156,6 +157,22 @@ function Header() {
                   <Link href="#" className="block py-2 px-3 ">
                     Features
                   </Link>
+                </li>
+                <li>
+                <Link
+              href="#"
+              className="block py-2 px-3  max-lg:text-lg lg:font-normal lg: text-2xl"
+              aria-current="page"
+              onClick={() => {
+                setAppState({
+                  ...appState,
+                  showModal: false,
+                  loginModal: true,
+                });
+              }}
+            >
+              Log in
+            </Link>
                 </li>
               </ul>
             </div>

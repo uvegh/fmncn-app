@@ -1,8 +1,10 @@
 export type User={
     
-        id:number;
-        password:string;
-        email:string;
+        id?:number;
+        password?:string;
+        email?:string;
+        username?:string
+        
    
 }
 

@@ -2,11 +2,17 @@ import { analytics } from "@/app/services/index"
 import { User } from "@/app/types/user"
 import { BASE_URL } from "@/app/utils"
 import axios from "axios"
-
+import {getCookie, setCookie} from 'cookies-next'
 
 export const handleSignup = () => {
 
 
+}
+
+export const DEFAULT_HEADERS_AUTHORIZATION={
+  headers:{
+    'Authorization': `Token ${getCookie("user_token")}`
+  }
 }
 interface funcParams {
   onSuccess: (params?: any) => void;
@@ -19,22 +25,25 @@ export const handleLogin = ({ onSuccess, onError,user }: funcParams) => {
   const response = axios.post(`${BASE_URL}/login`, user).then((res)=>{
 
     if (res?.status == 200) {
-      console.log(res)
+      
       const { data } = res;
+      console.log(data?.user?.id)
       analytics.identify(data?.user?.id, {
-        firstName: data?.user?.name?.split("")[0],
-        lastName: data?.user?.name?.split("")[0],
+        userName: data?.user?.username,
+      
         email: data?.user?.email
       });
-      analytics.track("Logged in",{
-        name: data?.user?.name,
-        email:data?.user?.email,
+      analytics.track(`${data?.user?.username} logged in`,{
+        userName: data?.user?.username,
+      
+        email: data?.user?.email,
         id:data?.user?.id
     })
 
+    setCookie("user_token",data?.token)
 
 
-      onSuccess(res?.data?.url)
+      onSuccess()
 
     }
   }).catch((err)=>{
@@ -42,10 +51,7 @@ console.log(err)
   })
   console.log(response)
   
-  analytics.track("User logged in", {
-    name: "Tester",
-    email: "tester@gmail.com"
-  })
+ 
 }
 
 export const handleAtlassianLogin = ({ onSuccess, onError }: funcParams) => {
