@@ -8,7 +8,7 @@ import Link from "next/link";
 import { AppContext } from "../container";
 
 function Header() {
-  const { appState, setAppState } = useContext(AppContext);
+  const { appState, setAppState ,isLoggedIn} = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -28,7 +28,10 @@ function Header() {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Link
+            
+{
+  !isLoggedIn&&(
+    <Link
               href="#"
               className="block py-2 px-3  max-lg:hidden lg:font-normal lg: text-2xl"
               aria-current="page"
@@ -42,7 +45,8 @@ function Header() {
             >
               Log in
             </Link>
-
+  )
+}
             <button
               type="button"
               onClick={() => {

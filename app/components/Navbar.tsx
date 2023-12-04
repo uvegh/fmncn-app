@@ -9,9 +9,13 @@ import Link from 'next/link';
 import Image from "next/image";
 
 import { AppContext } from "../container";
+import { deleteCookie } from 'cookies-next';
+import { useRouter } from 'next/navigation';
+import { handleLogout } from '../api/auth/user';
 function Navbar() {
-    const { appState, setAppState } = useContext(AppContext);
+  const { appState, setAppState ,isLoggedIn} = useContext(AppContext);
     const [isOpen, setIsOpen] = useState(false);
+    const route =useRouter()
   return (
     <>
    <nav className="bg-white text-primary-blue  font-poppins max-lg:min-h-[3rem]  lg:max-h-[6rem] fixed w-full   z-20 top-0 start-0  font-bold text-lg"
@@ -36,16 +40,12 @@ function Navbar() {
 
             <button
               type="button"
-              // onClick={() => {
-              //   setAppState({
-              //     ...appState,
-              //     showModal: true,
-              //   });
-              // }}
+              onClick={handleLogout}
               className=" hover: text-primary-success border-2 border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg:font-semibold lg: text-lg   px-4 py-1 text-center rounded-[1.3rem]  max-lg:hidden me-16 "
             >
            Logout
             </button>
+
             <button
               data-collapse-toggle="navbar-default"
               type="button"
@@ -110,12 +110,7 @@ function Navbar() {
               <li>
               <button
               type="button"
-              // onClick={() => {
-              //   setAppState({
-              //     ...appState,
-              //     showModal: true,
-              //   });
-              // }}
+              onClick={handleLogout}
               className=" hover: text-primary-success border-2 border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg:font-semibold lg: text-lg   px-4 py-1 text-center rounded-[1.3rem]  lg:hidden "
             >
            Logout
@@ -166,12 +161,7 @@ function Navbar() {
                 <li>
               <button
               type="button"
-              // onClick={() => {
-              //   setAppState({
-              //     ...appState,
-              //     showModal: true,
-              //   });
-              // }}
+              onClick={handleLogout}
               className=" hover: text-primary-success border-2 border-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold lg:font-semibold  text-lg   px-4 py-1 text-center rounded-lg   "
             >
            Logout

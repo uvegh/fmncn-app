@@ -2,6 +2,7 @@
 import { AppContext } from "@/app/container";
 import { initiateConfluenceOAuth } from "@/app/utils";
 import { Dialog, Transition } from "@headlessui/react";
+import { getCookie } from "cookies-next";
 import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment, useContext, useState } from "react";
@@ -20,7 +21,7 @@ const RecordingModal: React.FC<{
     console.log("closed");
   }
   const { appState, setAppState } = useContext(AppContext);
-
+const userObj=getCookie("userObj")
 
   return (
     <>
@@ -112,10 +113,12 @@ const RecordingModal: React.FC<{
 
                     </audio>
                     </main>
-                    
-<section className="flex justify-center gap-x-3 w-[60%] max-md:flex-col max-md:w-[90%]  mx-auto mt-10">
+
+                   
+<section className="flex justify-center gap-x-3 w-[60%] max-md:flex-col max-md:w-[90%]  mx-auto mt-10 ">
+  
 <Image
-                        className="mx-auto cursor-pointer text-center mt-5"
+                        className="mx-auto  text-center mt-5 border-grey-200 border-[.2rem]"
                         src="/images/viewMeetingNotes.svg"
                         alt="close btn"
                         width="360"
@@ -132,6 +135,16 @@ const RecordingModal: React.FC<{
 
                                   
 </section>
+<section className="flex  gap-x-3 w-[60%] max-md:flex-col max-md:w-[90%]  mx-auto mt-4 ">
+             <p className="-skew-y-2 text-primary-success ">
+      Coming soon
+      ...
+    </p>
+    <p className="-skew-y-6 text-primary-success hidden">
+      Coming soon
+      ...
+    </p>
+              </section> 
                     
 <div className=" justify-center flex gap-x-5 mt-10 max-sm">
                             <Image src="images/databricks.svg"

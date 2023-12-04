@@ -1,8 +1,9 @@
 "use client"
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import GetStarted from "../components/Modal/GetStarted";
 import LoginModal from "../components/Modal/LoginModal";
 import { SessionProvider } from "next-auth/react";
+import { getCookie } from "cookies-next";
 
 export const AppContext=createContext<any>({})
 
@@ -16,15 +17,27 @@ const [appState,setAppState]=useReducer(
 },{
     showModal:false,
     loginModal:false,
-    showConsent:true
+    showConsent:true,
+    
 }
 
 
 )
+const [isLoggedIn,setIsLoggedIn]=useState(false)
+const token=getCookie("user_token")
 
+useEffect(()=>{
+ 
+  if(token){
+    setIsLoggedIn(true)
+  }else{
+    setIsLoggedIn(false)
+  
+  }
+},[isLoggedIn,token])
 return(
   <SessionProvider>
-<AppContext.Provider value={{appState,setAppState}}>
+<AppContext.Provider value={{appState,setAppState,isLoggedIn,setIsLoggedIn}}>
 
     {children}
 

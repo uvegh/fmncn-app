@@ -2,11 +2,52 @@ import { analytics } from "@/app/services/index"
 import { User } from "@/app/types/user"
 import { BASE_URL } from "@/app/utils"
 import axios from "axios"
-import {getCookie, setCookie} from 'cookies-next'
+import {deleteCookie, getCookie, setCookie} from 'cookies-next'
 
-export const handleSignup = () => {
+interface funcParams {
+  onSuccess: (params?: any) => void;
+  onError: (params?: any) => void
+  user?:User
+}
+
+export const handleSignup = ({ onSuccess, onError,user }: funcParams) => {
+
+  const response = axios.post(`${BASE_URL}/signup`, user).then((res)=>{
+
+    if (res?.status == 200) {
+      console.log(res)
+      const { data } = res;
+ setCookie("userObj",data?.user)
+      analytics.identify(data?.user?.id, {
+        userName: data?.user?.username,
+      
+        email: data?.user?.email
+      });
+      analytics.track(`${data?.user?.username} Signed up and Logged in `,{
+        userName: data?.user?.username,
+      
+        email: data?.user?.email,
+        id:data?.user?.id
+    })
+
+    setCookie("user_token",data?.token)
 
 
+      onSuccess()
+
+    }
+  }).catch((err)=>{
+console.log(err)
+
+if (err?.status=="404"){
+  onError("Invalid Credentials")
+}else{
+  onError("Something went wrong")
+}
+  })
+  console.log(response)
+  
+ 
 }
 
 export const DEFAULT_HEADERS_AUTHORIZATION={
@@ -14,11 +55,7 @@ export const DEFAULT_HEADERS_AUTHORIZATION={
     'Authorization': `Token ${getCookie("user_token")}`
   }
 }
-interface funcParams {
-  onSuccess: (params?: any) => void;
-  onError: (params?: any) => void
-  user?:User
-}
+
 
 export const handleLogin = ({ onSuccess, onError,user }: funcParams) => {
 
@@ -27,6 +64,7 @@ export const handleLogin = ({ onSuccess, onError,user }: funcParams) => {
     if (res?.status == 200) {
       
       const { data } = res;
+      setCookie("userObj",data?.user)
       console.log(data?.user?.id)
       analytics.identify(data?.user?.id, {
         userName: data?.user?.username,
@@ -48,11 +86,20 @@ export const handleLogin = ({ onSuccess, onError,user }: funcParams) => {
     }
   }).catch((err)=>{
 console.log(err)
+
+if (err?.status=="404"){
+  onError("Invalid Credentials")
+}else{
+  onError("Something went wrong")
+}
   })
   console.log(response)
   
  
 }
+
+
+
 
 export const handleAtlassianLogin = ({ onSuccess, onError }: funcParams) => {
   axios.get(`${BASE_URL}/atlassian_auth`).then((res) => {
@@ -81,4 +128,12 @@ export const handleAtlassianLogin = ({ onSuccess, onError }: funcParams) => {
     onError()
   })
 
+}
+
+export const handleLogout=()=>{
+  window.location.replace("/home")
+ 
+    deleteCookie("user_token")
+    
+  
 }

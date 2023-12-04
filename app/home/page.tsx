@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import { AppContext } from '../container'
 import Header from '../components/Header'
 import { analytics } from '../services'
+import { useRouter } from 'next/navigation'
 
 
 
@@ -21,6 +22,7 @@ analytics.page({
 },[])
 
   const {appState,setAppState}=useContext(AppContext)
+  const route =useRouter
   return (
     <>
     <Header/>
@@ -35,10 +37,10 @@ Revolutionize your meeting <br /> notes with FMCN
 </h1>
 
 <div className="text-container text-white text-center font-semibold max-lg:text-sm text-[1.3rem] mt-7 min-w-full font-poppins">
-  <div className="text-slide-up flex flex-col relative mx-auto min-w-full">
+  <div className="text-slide-up-u flex flex-col relative mx-auto min-w-full">
 <span className='text1 '>Generates structural meeting notes</span>
-<span className='text1'>Every second is recorded</span>
-<span className='text1'>Produces accurate transcriptions</span>
+{/* <span className='text1'>Every second is recorded</span>
+<span className='text1'>Produces accurate transcriptions</span> */}
 </div   >
 </div>
 <div className='text-center mt-7'>
@@ -47,7 +49,7 @@ Revolutionize your meeting <br /> notes with FMCN
 
               onClick={()=>{
              
-                 
+                // window.location.href="/dashboard"
        
                   setAppState({
                     ...appState,showModal:true
@@ -77,7 +79,7 @@ Revolutionize your meeting <br /> notes with FMCN
 
               onClick={()=>{
              
-                 
+                    //  window.location.href="/dashboard"
        
                   setAppState({
                     ...appState,showModal:true
@@ -118,7 +120,7 @@ Revolutionize your meeting <br /> notes with FMCN
               onClick={()=>{
              
                  
-       
+    // window.location.href="/dashboard"
                   setAppState({
                     ...appState,showModal:true
 
@@ -146,7 +148,7 @@ Revolutionize your meeting <br /> notes with FMCN
 
               onClick={()=>{
              
-                 
+                //  window.location.href="/dashboard"
        
                   setAppState({
                     ...appState,showModal:true

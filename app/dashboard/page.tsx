@@ -56,7 +56,7 @@ analytics.page({
           <div className="bg-white font-rubik rounded-[1.3rem] text-primary-blue text-xl mx-auto mt-16 my-auto min-h-[50%] h-[20em] max-sm:w-full w-[90%] max-sm:rounded-0 overflow-auto">
             <div className="overflow-hidden ">
               <header className="flex justify-between w-[95%] mx-auto text-black font-semibold h-20 items-center">
-                <p className="text-3xl max-lg:text-lg">Meeting Records</p>
+                <p className="text-xl max-lg:text-lg">Meeting Records <br /><span className="text-light text-sm italic">(Save your meeting recordings,transcriptions and retrieve analytics anytime) coming soon... </span></p>
                 <p className="text-xl text-primary-success flex items-center max-lg:text-lg">
                   See more <IoIosArrowForward />{" "}
                 </p>
@@ -84,13 +84,13 @@ analytics.page({
         <tbody>
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium  whitespace-nowrap dark:text-white">
-                10th Dec, 2022
+                Coming soon..
                 </th>
                 <td className="px-6 py-4">
-                Project Acer: Stand Up Meeting
+                Coming soon..
                 </td>
                 <td className="px-6 py-4">
-                45:02:34
+                Coming soon..
                 </td>
                 <td className="px-6 py-4 ">
                 <button
@@ -101,7 +101,7 @@ analytics.page({
                       </button>
                 </td>
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 10th Dec, 2022
                 </th>
@@ -138,7 +138,7 @@ analytics.page({
                         View Details
                       </button>
                 </td>
-            </tr>
+            </tr> */}
         </tbody>
     </table>
 </div>

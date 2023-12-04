@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import { CiMicrophoneOn, CiMicrophoneOff } from "react-icons/ci";
 import { BASE_URL } from "../utils";
 import { DEFAULT_HEADERS_AUTHORIZATION } from "../api/auth/user";
+import { getCookie } from "cookies-next";
 
 interface funcParams{
   sendBlob:(params?:any)=>void
@@ -25,7 +26,14 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
   const [minute, setMinute] = useState<string | number>("00");
   const [counter, setCounter] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const user= getCookie("userObj")
+  //@ts-ignore
+  let userObj
+  if(user){
+     userObj=JSON.parse(user)
+  }
 
+   
   const mimeType = "audio/webm";
   const getMicrophonePermission = async () => {
     if ("MediaRecorder" in window) {
@@ -44,28 +52,62 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
     }
   };
 
+  // const startRecording = async () => {
+  //   getMicrophonePermission();
+  //   setRecordingStatus("recording");
+  //   setIsActive(true);
+    
+  //   const media = new MediaRecorder(stream);
+    
+  //   mediaRecorder.current = media;
+
+  //   mediaRecorder.current.start();
+  //   let localAudioChunks: any = [];
+  //   mediaRecorder.current.ondataavailable = (event: any) => {
+  //     if (typeof event.data === "undefined") return;
+  //     if (event.data.size === 0) return;
+  //     localAudioChunks.push(event.data);
+  //   };
+  //   //@ts-ignore
+  //   start()
+  //   setAudioChunks(localAudioChunks);
+  // };
+
   const startRecording = async () => {
-    getMicrophonePermission();
-    setRecordingStatus("recording");
-    setIsActive(true);
-    //create new Media recorder instance using the stream
-    const media = new MediaRecorder(stream);
-    //set the MediaRecorder instance to the mediaRecorder ref
-    mediaRecorder.current = media;
-    //invokes the start method to start the recording process
-    mediaRecorder.current.start();
-    let localAudioChunks: any = [];
-    mediaRecorder.current.ondataavailable = (event: any) => {
-      if (typeof event.data === "undefined") return;
-      if (event.data.size === 0) return;
-      localAudioChunks.push(event.data);
-    };
-    //@ts-ignore
-    start()
-    setAudioChunks(localAudioChunks);
+    try {
+      const streamData = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video: false,
+      });
+
+      setPermission(true);
+      setStream(streamData);
+      setRecordingStatus("recording");
+      setIsActive(true);
+
+      // Create new MediaRecorder instance using the stream
+      const media = new MediaRecorder(streamData);
+      // Set the MediaRecorder instance to the mediaRecorder ref
+      mediaRecorder.current = media;
+      // Invokes the start method to start the recording process
+      mediaRecorder.current.start();
+
+      let localAudioChunks: any = [];
+      mediaRecorder.current.ondataavailable = (event: any) => {
+        if (typeof event.data === "undefined") return;
+        if (event.data.size === 0) return;
+        localAudioChunks.push(event.data);
+      };
+
+      //@ts-ignore
+      start();
+      setAudioChunks(localAudioChunks);
+    } catch (err: any) {
+      alert(err.message);
+    }
   };
 
-  const stopRecording = () => {
+  const stopRecording = (cancel?:boolean) => {
     setRecordingStatus("inactive");
     setSecond("00")
     setMinute("00")
@@ -83,13 +125,18 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
       handleSave(audioUrl);
     };
     mediaRecorder.current.stop();
-    stop()
+    if(!cancel){
+      stop()
+    }
+    
+    setCounter(0);
   };
 
   const testing = async (file: File) => {
     if (file) {
       const formData = new FormData();
       formData.append("audio_file", file);
+      console.log(audio)
       setIsloading(true);
 
       try {
@@ -102,7 +149,8 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
         console.log(response.data);
 
         setTranscripts(response.data?.data?.text);
-        console.log(transcripts); // Assuming the response contains useful data
+        localStorage.setItem("meeting_transcripts",(response.data?.data?.text))
+                console.log(transcripts); // Assuming the response contains useful data
       } catch (error) {
         console.error("Error uploading audio:", error);
         setIsloading(true);
@@ -157,7 +205,7 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
         <div className="bg-primary-blue font-rubik rounded-[1.3rem] mx-auto  my-auto min-h-[50%] max-lg:h-[15em] h-[20em] max-sm:rounded  max-sm:w-full w-[90%]">
           <div className="">
             <h1 className="text-4xl max-lg:text-xl max-lg:font-normal font-semibold text-center text-white pt-8">
-              Welcome, Vincent
+              Welcome, {userObj?.username}
             </h1>
             <section className="flex justify-center gap-x-10 mt-8 items-center">
               <button className="hover:scale-125 transition-all ">
@@ -196,10 +244,8 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
               <button className="hover:scale-125 transition-all"
               
               onClick={()=>{
-                stopRecording()
-                clearInterval(intervalId);
-                 setSecond("00")
-    setMinute("00")
+                stopRecording(true)
+               
               }}>
                 <Image
 
