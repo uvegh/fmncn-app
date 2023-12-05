@@ -19,9 +19,9 @@ function Navbar() {
   return (
     <>
    <nav className="bg-white text-primary-blue  font-poppins max-lg:min-h-[3rem]  lg:max-h-[6rem] fixed w-full   z-20 top-0 start-0  font-bold text-lg"
-      onClick={()=>{
-        setIsOpen(false)
-      }}
+      // onClick={()=>{
+      //   setIsOpen(false)
+      // }}
       >
         <div className="w-full flex flex-wrap items-center gap-6 justify-between mx-auto max-lg:min-h-[3rem] ">
          
@@ -130,7 +130,7 @@ function Navbar() {
               <ul className="   ">
                 <li>
                   <Link
-                    href="#"
+                    href="/home"
                     className="block py-2 px-3"
                     aria-current="page"
                   >

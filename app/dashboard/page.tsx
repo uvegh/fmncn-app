@@ -53,17 +53,17 @@ analytics.page({
           />
         </section>
         <section className="">
-          <div className="bg-white font-rubik rounded-[1.3rem] text-primary-blue text-xl mx-auto mt-16 my-auto min-h-[50%] h-[20em] max-sm:w-full w-[90%] max-sm:rounded-0 overflow-auto">
+          <div className="bg-white  max-sm:rounded-[0] rounded-[1.3rem] text-primary-blue text-xl mx-auto mt-16 my-auto min-h-[50%] max-lg:min-h-fit lg:min-h-[15em] max-sm:w-full w-[90%] max-sm:rounded-0 overflow-auto">
             <div className="overflow-hidden ">
-              <header className="flex justify-between w-[95%] mx-auto text-black font-semibold h-20 items-center">
-                <p className="text-xl max-lg:text-lg">Meeting Records <br /><span className="text-light text-sm italic">(Save your meeting recordings,transcriptions and retrieve analytics anytime) coming soon... </span></p>
-                <p className="text-xl text-primary-success flex items-center max-lg:text-lg">
-                  See more <IoIosArrowForward />{" "}
+              <header className="flex justify-between  max-sm:flex-col w-[95%] mx-auto text-black font-semibold h-20 items-center">
+                <p className="text-xl max-lg:text-lg text max-sm:mt-5">Meeting Records <br /><span className="text-light text-sm italic">Save your meeting recordings,transcriptions and retrieve analytics anytime coming soon... </span></p>
+                <p className="text-xl text-primary-success max-sm:hidden flex items-center max-lg:text-sm hover:underline">
+                  See more <span className="max-sm:hidden"> <IoIosArrowForward /></span> {" "}
                 </p>
               </header>
              
 
-<div className="relative overflow-auto text-primary-blue">
+<div className="relative overflow-auto text-primary-blue max-sm:mt-10">
     <table className="w-full text-sm lg:text-xl text-left rtl:text-right  dark:text-gray-400">
         <thead className="text-xs   uppercase  dark:bg-gray-700 dark:text-gray-400">
             <tr>

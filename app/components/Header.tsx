@@ -12,12 +12,9 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <nav className="bg-primary-blue dark:bg-gray-900 font-poppins fixed w-full text-white z-20 top-0 start-0  font-semibold text-lg"
-      onClick={()=>{
-        setIsOpen(false)
-      }}
+      <nav className="bg-primary-blue dark:bg-gray-900 font-rubik fixed w-full text-white z-20 top-0 start-0  font-semibold text-lg"
       >
-        <div className="w-[90%] flex flex-wrap items-center gap-6 justify-between mx-auto p-4">
+        <div className="w-full flex flex-wrap items-center gap-6 justify-between mx-auto p-4">
           <Link href="/home" className="flex items-center">
             <Image
               width="100"
@@ -63,7 +60,7 @@ function Header() {
               data-collapse-toggle="navbar-default"
               type="button"
               onClick={(e)=>{
-                // e.stopPropagation()
+                e.stopPropagation()
                 setIsOpen(!isOpen)
               }}
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -125,7 +122,7 @@ function Header() {
 
           {isOpen && (
             <div
-              className="items-center justify-between  max-md:block w-full  md:w-auto md:order-1 hidden "
+              className="items-center justify-between  max-md:block w-full  md:w-auto md:order-1  "
               id="navbar-default"
 //               onClick={(e)=>{
 // e.stopPropagation()

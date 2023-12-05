@@ -202,9 +202,9 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
   return (
     <>
       <section className="pt-16 max-lg:pt-0">
-        <div className="bg-primary-blue font-rubik rounded-[1.3rem] mx-auto  my-auto min-h-[50%] max-lg:h-[15em] h-[20em] max-sm:rounded  max-sm:w-full w-[90%]">
+        <div className="bg-primary-blue   font-rubik rounded-[1.3rem] mx-auto  my-auto min-h-[50%] max-lg:h-[15em] h-[20em] max-sm:rounded  max-sm:w-full w-[90%]">
           <div className="">
-            <h1 className="text-4xl max-lg:text-xl max-lg:font-normal font-semibold text-center text-white pt-8">
+            <h1 className="text-2xl max-lg:text-lg italic max-lg:font-normal font-semibold text-center text-white pt-8">
               Welcome, {userObj?.username}
             </h1>
             <section className="flex justify-center gap-x-10 mt-8 items-center">
@@ -259,7 +259,7 @@ const AudioRecorder = ({sendBlob,start,stop}:funcParams) => {
             </section>
           </div>
 
-          <section className="flex justify-center gap-x-5 mt-2 text-white items-center mx-auto">
+          <section className="flex justify-center gap-x-5 mt-2 text-white items-center mx-auto max-sm:pb-10">
             <p className="opacity-0">
               <Image
                 width="88"

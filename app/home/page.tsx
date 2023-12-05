@@ -21,8 +21,8 @@ analytics.page({
 })
 },[])
 
-  const {appState,setAppState}=useContext(AppContext)
-  const route =useRouter
+  const {appState,setAppState,isLoggedIn}=useContext(AppContext)
+  const route =useRouter()
   return (
     <>
     <Header/>
@@ -48,8 +48,8 @@ Revolutionize your meeting <br /> notes with FMCN
               type="button"
 
               onClick={()=>{
-             
-                // window.location.href="/dashboard"
+             isLoggedIn?
+                 window.location.href="/dashboard":
        
                   setAppState({
                     ...appState,showModal:true
@@ -78,14 +78,14 @@ Revolutionize your meeting <br /> notes with FMCN
               type="button"
 
               onClick={()=>{
-             
-                    //  window.location.href="/dashboard"
-       
-                  setAppState({
-                    ...appState,showModal:true
-
-                  })
-              }}
+                isLoggedIn?
+                    window.location.href="/dashboard":
+          
+                     setAppState({
+                       ...appState,showModal:true
+   
+                     })
+                 }}
               className="text-white max-lg:text-xl mt-5 lg:font-semibold lg: text-2xl hover:bg-primary-success bg-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold font-rubik max-lg:px-3 px-6 py-3 max-lg:py-1 max-lg:font-normal text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-[1.3rem] "
             >
               Get started
@@ -118,14 +118,14 @@ Revolutionize your meeting <br /> notes with FMCN
               type="button"
 
               onClick={()=>{
-             
-                 
-    // window.location.href="/dashboard"
-                  setAppState({
-                    ...appState,showModal:true
-
-                  })
-              }}
+                isLoggedIn?
+                    window.location.href="/dashboard":
+          
+                     setAppState({
+                       ...appState,showModal:true
+   
+                     })
+                 }}
               className="text-white max-lg:text-xl mt-5 lg:font-semibold lg: text-2xl hover:bg-primary-success bg-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold font-rubik max-lg:px-3 px-6 py-3 max-lg:py-1 max-lg:font-normal text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-[1.3rem] "
             >
               Get started
@@ -147,14 +147,14 @@ Revolutionize your meeting <br /> notes with FMCN
               type="button"
 
               onClick={()=>{
-             
-                //  window.location.href="/dashboard"
-       
-                  setAppState({
-                    ...appState,showModal:true
-
-                  })
-              }}
+                isLoggedIn?
+                    window.location.href="/dashboard":
+          
+                     setAppState({
+                       ...appState,showModal:true
+   
+                     })
+                 }}
               className="text-white max-lg:text-xl mt-5 lg:font-semibold lg: text-2xl hover:bg-primary-success bg-primary-success focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold font-rubik max-lg:px-3 px-6 py-3 max-lg:py-1 max-lg:font-normal text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-[1.3rem] "
             >
               Get started

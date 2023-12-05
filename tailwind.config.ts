@@ -26,9 +26,9 @@ const config: Config = {
 
     },
     fontFamily:{
-      rubik: ['Rubik', 'sans-serif'],
+      rubik: 'Rubik',
       
-      poppins: ['Poppins', 'sans-serif'],
+      poppins: 'Poppins'
     },
     extend: {
      backgroundImage:{

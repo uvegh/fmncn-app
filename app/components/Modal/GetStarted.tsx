@@ -83,9 +83,9 @@ const [errMessage,setErrMessage]=useState<string>("")
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="max-w-lg  transform overflow-hidden h-[545px] w-[585px] bg-white rounded-[24px] align-middle shadow-xl transition-all relative max-lg:w-[100%]">
+                <Dialog.Panel className="max-w-lg  transform overflow-hidden h-[545px] w-[585px] bg-white rounded-[24px] align-middle shadow-xl transition-all relative max-lg:w-[100%] overflow-y-auto">
                
-                  <section className="pt-[86px] relative text-center  ">
+                  <section className="pt-[86px] max-md:pt-12 relative text-center  ">
                    
                     <h3 className='text-grey-300 font-bold text-lg'>Create an account?</h3>
                     <Link
@@ -95,7 +95,7 @@ const [errMessage,setErrMessage]=useState<string>("")
                       }}
                     >
                       <Image
-                        className="absolute left-[90%] bottom-[90%] max-lg:left-[85%] cursor-pointer"
+                        className="absolute left-[90%] max-sm:w-8 max-sm:left-[90%] max-md:bottom-[94%] max-sm bottom-[90%] max-lg:left-[85%] cursor-pointer"
                         src="/images/close-btn.svg"
                         alt="close btn"
                         width="50"
@@ -105,7 +105,7 @@ const [errMessage,setErrMessage]=useState<string>("")
 
 <div className='mt-12 '>
 
-<form className="max-w-sm mx-auto">
+<form className="max-w-sm mx-auto max-md:w-[90%] ">
   <div className="mb-5">
     <label htmlFor="email" className="block mb-2  text-start text-sm font-medium text-gray-900 dark:text-white"> Username</label>
     <input 
@@ -114,7 +114,7 @@ setInputVal({
   ...inputVal,username:e.target.value
 })
     }}
-    type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required/>
+    type="text" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" required/>
   </div>
   <div className="mb-5">
     <label htmlFor="email" className="block mb-2  text-start text-sm font-medium text-gray-900 dark:text-white"> Email</label>
@@ -124,7 +124,7 @@ setInputVal({
   ...inputVal,email:e.target.value
 })
     }}
-    type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required/>
+    type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="email" required/>
   </div>
   <div className="mb-5">
     <label htmlFor="password" className="block mb-2 text-start  text-sm font-medium text-gray-900 dark:text-white"> Password</label>
@@ -147,7 +147,7 @@ setInputVal({
     setIsLoading(true)
     handleSignup({onSuccess:onSuccess,onError:onError,user:inputVal})
   }}
-  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full max-sm:w-1/2 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  type="button" className="text-white bg-primary-blue hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full max-sm:w-1/2 px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
     {isLoading?(
     <div className="text-center">
     <div role="status">
