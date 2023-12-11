@@ -48,4 +48,37 @@ export const confluenceOAuthConfig: ConfluenceOAuthConfigType = {
   export const confluenceAuthUrl = `https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=HVD0eQUowBXTkpK7yVjecSzLcC75Tl9n&scope=write%3Aconfluence-content&redirect_uri=https%3A%2F%2Ffmcn.vercel.app%2Fdashboard&state=${encodeURIComponent(url_state)}&response_type=code&prompt=consent`
 
   export const  BASE_URL=" https://fmcn-owl-api.vercel.app"
+
+  export const shakeAndVibrate={
+
+    hover:{
+      x: [-5, 5, -5, 5, 0], 
+      y: [0, -5, 5, -5, 5, 0],
+      transition: {
+        duration: 0.5,
+      },
+    }
+    }
   
+
+    export const shakeAndVibrateX={
+
+      hover:{
+        x: [-5, 5, -5, 5, 0], 
+        // y: [0, -5, 5, -5, 5, 0],
+        transition: {
+          duration: 0.5,
+        },
+      }
+      }
+  
+      export const shakeAndVibrateY={
+
+        hover:{
+        
+          y: [0, -5, 5, -5, 5, 0],
+          transition: {
+            duration: 0.5,
+          },
+        }
+        }

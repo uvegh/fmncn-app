@@ -1,3 +1,4 @@
+import { Poppins, Rubik, Sansita } from 'next/font/google'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -26,9 +27,11 @@ const config: Config = {
 
     },
     fontFamily:{
-      rubik: 'Rubik',
+      //@ts-ignore
+      rubik: Rubik,
       
-      poppins: 'Poppins'
+      //@ts-ignore
+      poppins: Poppins
     },
     extend: {
      backgroundImage:{
