@@ -18,22 +18,14 @@ function Navbar() {
     const route =useRouter()
   return (
     <>
-   <nav className="bg-white text-primary-blue  font-poppins max-lg:min-h-[3rem]  lg:max-h-[6rem] fixed w-full   z-20 top-0 start-0  font-bold text-lg"
+   <nav className="bg-white text-primary-blue  font-poppins max-lg:min-h-[3rem] fixed   lg:h-20  w-full   z-10 top-0 start-0  font-bold text-lg"
       // onClick={()=>{
       //   setIsOpen(false)
       // }}
       >
         <div className="w-full flex flex-wrap items-center gap-6 justify-between mx-auto max-lg:min-h-[3rem] ">
          
-<Link href="/home" className="flex items-center">
-            <Image
-              width="100"
-              height="96"
-              src="/logo1.svg"
-              className="  max-md:w-[30%] max-md:h-[30%] "
-              alt=" Logo"
-            />
-          </Link>
+
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse ">
           

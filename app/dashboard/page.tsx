@@ -43,7 +43,7 @@ analytics.page({
         audioRecord={audioUrl}
       />
 
-      {/* <Navbar/> */}
+    
       <div className="bg-grey-200 min-h-screen ">
         <section className=" mx-auto">
           <Recorder

@@ -13,15 +13,25 @@ function Layout({children}:{
     
     
        
-        <Navbar/>
-       
+        
    
  
-    <section className='flex lg: mt-[5.7rem] max-lg:mt-10'>
-       <div className='w-[5.9%] min-h-screen bg-primary-blue z-19 hidden lg:block'>
-<ul className='fixed ms-5 mt-16'>
-    
-    <li className=""> 
+    <section className='flex  max-lg:mt-10'>
+
+       <div className='w-[6%] min-h-screen bg-primary-blue z-20 hidden lg:block top-0 left-0 fixed'>
+<ul className=' ms-5 '>
+    <li>
+    <Link href="/home" className="flex items-center">
+            <Image
+              width="100"
+              height="96"
+              src="/logo1.svg"
+              className="  max-md:w-[30%] max-md:h-[30%] "
+              alt=" Logo"
+            />
+          </Link>
+    </li>
+    <li className=" mt-10"> 
     <Link href="/dashboard">
     <Image
               width="61"
@@ -35,7 +45,9 @@ function Layout({children}:{
 </ul>
 
    </div>
-   <div className='w-[94%] max-lg:w-full'>
+   <div className='w-[94%] max-lg:w-full ms-auto'>
+   <Navbar/>
+       
    {children}
    </div>
    </section>
